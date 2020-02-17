@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/opal_logo.png">
+    <link rel="icon" type="image/png" href="assets/img/opal_logo_transparent.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>
+        Opál Camp
+    </title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <!-- CSS Files -->
+    <link href="assets/css/material-kit.css?v=2.0.3" rel="stylesheet" />
+
+    <!--Custom CSS-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+
+    <style>
+        @media only screen and (min-width: 1024px) {
+            #image_height {
+                height: 58em;
+            }
+        }
+
+        @media only screen and (max-width: 1024px) {
+            #image_height {
+                height: 40em;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="profile-page sidebar-collapse">
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://connect.facebook.net/sk_SK/sdk.js#xfbml=1&version=v3.0';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
+    <nav class="navbar navbar-transparent navbar-color-on-scroll fixed-top navbar-expand-lg" color-on-scroll="100" id="sectionsNav">
+        <div class="container">
+
+            <!--Mobile version menu hamburger-->
+            <div class="navbar-translate">
+                <img onclick="topFunction()" src="assets/img/opal_logo_transparent.png" class="img-fluid"
+                    style="height: 4%; width:  4%;">
+                <a href="javascript:void(0);" class="navbar-brand" onclick="topFunction()" style="margin-left: 1em;">
+                    Opál Camp </a>
+                <button id="navbar-toggler" class="navbar-toggler" type="button" data-toggle="collapse"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+
+            <!--Top bar items-->
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link about_us" data-placement="bottom" href="http://www.opalcamp.sk/#about_us"
+                            onclick="colapseSideNav()">O nás</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="http://www.opalcamp.sk/#oc_siet"
+                            onclick="colapseSideNav()">Sieť</a>
+                    </li>
+
+                    <!-- <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Registrácia
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <a class="dropdown-item" href="#">Pro</a>
+                                            <a class="dropdown-item" href="#">Start</a>
+                                            <a class="dropdown-item" href="#">Rodina</a>
+                                            <a class="dropdown-item" href="#">Denny</a>
+                                            <a class="dropdown-item" href="#">Extrem</a>
+                                        </div>
+                                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="http://www.opalcamp.sk/#tabory"
+                            onclick="colapseSideNav()">Tábory</a>
+                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="http://www.opalcamp.sk/#gallery"
+                            onclick="colapseSideNav()">Galéria</a>
+                    </li> -->
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="http://www.opalcamp.sk/#contact"
+                            onclick="colapseSideNav()">Kontakt</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="stand.html" onclick="colapseSideNav()">PRO &
+                            START</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="extrem.html"
+                            onclick="colapseSideNav()">EXTREM</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" data-placement="bottom" href="rodina.html"
+                            onclick="colapseSideNav()">RODINA</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom"
+                            href="https://www.facebook.com/Opál-Camp-146464582089712" target="_blank"
+                            data-original-title="Lajkni nás na Facebooku" onclick="colapseSideNav()">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" rel="tooltip" title="" data-placement="bottom"
+                            href="https://www.instagram.com/OpalCamp" target="_blank"
+                            data-original-title="Followni nás na Instagrame" onclick="colapseSideNav()">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="page-header header-filter" data-parallax="true" style="background-image: url('assets/img/title.jpg'); " id="image_height"></div>
+    <div class="main main-raised">
+        <div class="profile-content">
+            <div class="container">
+
+                <!--Opal logo-->
+                <div class="row">
+                    <div class="col-md-6 ml-auto mr-auto">
+                        <div class="profile">
+                            <div class="avatar">
+                                <img id="about_us" src="assets/img/opal_logo_transparent.png" class="img-fluid"
+                                    style="height: 100%; width:  100%;">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Main info-->
+                    <div id="oNas" class="section text-center">
+                        <div class="row">
+                            <div class="col-md-12 ml-auto mr-auto">
+                                <h1 class="title">O nás</h1>
+                            </div>
+
+                            <div class="col-md-12 ml-auto mr-auto">
+                                <h4>
+                                Opál Campy sú dobrodružno–zážitkové tábory v krásnej prírode Slanských vrchov, ktoré
+                                organizuje OZ TriP a Zbor Cirkvi bratskej v Hermanovciach nad Topľou.
+                            </h4>
+                            </div>
+                        </div>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                    </div>
+                </div>
+            </div>
+
+            <div id="nasehodnoty" class="section text-center" style="background-color: #FBB24B;">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12 ml-auto mr-auto">
+                            <h1 class="title">Naše hodnoty</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="icon icon-info">
+                                <!--<i class="material-icons">chat</i>-->
+                            </div>
+                            <h2 class="info-title">Príroda</h2>
+                            <h4>Opál Camp je pobyt v prírode spojený so všetkým, čo patrí ku kvalitným outdoorovým
+                            zážitkom. (orientácia v teréne, lezenie a lanové aktivity, turistika, táborenie a
+                            bivakovanie... ) Chceme zobrať mladých ľudí do prostredia, ktoré je oddelené od
+                            digitálneho sveta displejov a hluku civilizácie.</h4>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="icon icon-success">
+                                <!--<i class="material-icons">verified_user</i>-->
+                            </div>
+                            <h2 class="info-title">Priateľstvo</h2>
+                            <h4>Chceme učiť mladých ľudí tímovej spolupráci pri rôznych kolektívnych a
+                            teambuildingových aktivitách. Spoločné zážitky vytvárajú priestor pre priateľstvá,
+                            ktoré sú upevňované časom na osobné rozhovory a vzájomné modlitby.</h4>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="icon icon-danger">
+                                <!--<i class="material-icons">fingerprint</i>-->
+                            </div>
+                            <h2 class="info-title">Poznanie</h2>
+                            <h4>Príroda a priateľstvá vytvárajú priestor pre telesný, duševný a duchovný rozvoj
+                            účastníkov táborov. Chceme, aby mladí ľudia počas campov spoznávali seba - svoje
+                            hranice, ale aj svoju hodnotu; svoje obmedzenia, ale aj svoje obdarovania.
+                            Ale hlavne nám ide o poznanie Ježiša Krista ako osobného priateľa a spasiteľa.</h4>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!--
+    <div class="section text-center" style="background-color: #FBB24B;">
+        <div class="container">
+        </div>
+    </div> -->
+
+
+            <!-- FBB24B -->
+            <!-- TERMINY OC 2019 -->
+            <div id="tabory" class="section text-center" style="background-color: #4C4C4D;">
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12 ml-auto mr-auto">
+                            <h1 class="title text-white">Tábory 2019</h1>
+                            <br>
+                            <br>
+                    </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card card-nav-tabs">
+                                    <div class="card-header card-header-warning">
+                                        <div class="nav-tabs-navigation">
+                                            <div class="nav-tabs-wrapper">
+                                                <h2 class="title text-white">Opál Camp PRO</h2>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <div class="tab-content text-center">
+                                            <div class="tab-pane active" id="profile">
+                                                <h4>Tábor pre teenagerov od 14 do 18 rokov</h4>
+                                                <!-- <h4>12.-20. júl 2019</h4> -->
+                                                <button onclick="location.href='http://www.opalcamp.sk/stand.html'"
+                                            class="btn btn-warning btn-round">Viac info</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card card-nav-tabs">
+                                    <div class="card-header card-header-warning">
+                                        <div class="nav-tabs-navigation">
+                                            <div class="nav-tabs-wrapper">
+                                                <h2 class="title text-white">Opál Camp START</h2>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <div class="tab-content text-center">
+                                            <div class="tab-pane active" id="profile">
+                                                <h4>Tábor pre dorastencov od 10 do 13 rokov</h4>
+                                                <!-- <h4>21.-27. júl 2019</h4> -->
+                                                <button onclick="location.href='http://www.opalcamp.sk/stand.html'"
+                                            class="btn btn-warning btn-round">Viac info</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card card-nav-tabs">
+                                    <div class="card-header card-header-warning">
+                                        <div class="nav-tabs-navigation">
+                                            <div class="nav-tabs-wrapper">
+                                                <h2 class="title text-white">Opál Camp RODINA</h2>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <div class="tab-content text-center">
+                                            <div class="tab-pane active" id="profile">
+                                                <h4>Pobyt pre rodičov s deťmi do 10 rokov</h4>
+                                                <!-- <h4>4.-7. júl 2019</h4> -->
+                                                <button onclick="location.href='http://www.opalcamp.sk/rodina.html'"
+                                            class="btn btn-warning btn-round">Viac info</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="card card-nav-tabs">
+                                    <div class="card-header card-header-warning">
+                                        <div class="nav-tabs-navigation">
+                                            <div class="nav-tabs-wrapper">
+                                                <h2 class="title text-white">Opál Camp EXTRÉM</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        <div class="tab-content text-center">
+                                            <div class="tab-pane active" id="profile">
+                                                <h4>Výlet pre dobrodruhov od 18 rokov</h4>
+                                                <!-- <h4>26.-29. august 2019</h4> -->
+                                                </h4>
+                                                <button onclick="location.href='http://www.opalcamp.sk/extrem.html'"
+                                            class="btn btn-warning btn-round">Viac info</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- SIET -->
+                <div id="oc_siet" class="section text-center" style="background-color: #FFFFFF;">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-12 ml-auto mr-auto">
+                                <h1 class="title">OC Sieť</h1>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>OC SIEŤ je príležitosť zažiť atmosféru Opál Campu po celý rok a zapojiť sa do siete
+                            vzťahov,
+                            ktoré vznikli na táboroch. Je to určené pre vekovú skupinu z OC PRO (14-18 rokov).
+                            OC SIEŤ má tri roviny:</h4>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <h2 class="info-title">Výlety, túry</h2>
+                                <h4>Poslednú sobotu, každý párny mesiac spolu prekonávame výzvy divočiny.
+                            27. október
+                            29. december
+                            23. február
+                            27. apríl
+                        </h4>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <h2 class="info-title">Základňa</h2>
+                                <h4>Poslednú sobotu, každý nepárny mesiac chceme klásť základy kresťanskej viery na
+                            spoločnom
+                            stretnutí v CB Hermanovce.
+                            29. september
+                            24. november
+                            26. január
+                            30. marec
+                            25. máj
+                        </h4>
+                            </div>
+
+                            <div class="col-md-4">
+                                <h2 class="info-title">Učenicke trojice</h2>
+                                <h4>Pravidelné stretávanie sa v trojici za účelom zdieľania, čítania Biblie, modliteb,
+                            vzájomného podporovania v osobnom raste a povzbudzovania k aktívnemu životu pre
+                            druhých.
+                        </h4>
+                            </div>
+
+                            <div class="col-md-12" style="margin-top: 5%;">
+                                <h5 class="info-title">Ak máte záujem o účasť v OC SIEŤ, neváhajte nás kontaktovať.</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="section text-center" style="background-color: #4C4C4D;">
+                    <div class="container">
+                        <div class="row ">
+
+                            <div class="col-md-12 ml-auto mr-auto text-center">
+                                <h1 class="title text-white">Nástenka</h1>
+
+                                <div class="fb-page" data-href="https://www.facebook.com/Op%C3%A1l-Camp-146464582089712/" data-tabs="timeline" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false"
+                                    data-show-facepile="true">
+                                    <blockquote cite="https://www.facebook.com/Op%C3%A1l-Camp-146464582089712/" class="fb-xfbml-parse-ignore"><a
+                                    href="https://www.facebook.com/Op%C3%A1l-Camp-146464582089712/">Opál
+                                    Camp</a>
+                                    </blockquote>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="section text-center" style="background-color: #FFFFFF;">
+                    <div class="container">
+                        <div class="row ">
+
+                            <div class="col-md-12 ml-auto mr-auto text-center">
+                                <h1 class="title">Táborisko</h1>
+
+                                <h3 class="info-title">Možnosti táboriska</h3>
+                                <h4>Veľký altánok sa používa ako jedáleň a v prípade nepriaznivého počasia sa v ňom dajú
+                            tráviť
+                            spoločné chvíle hrami alebo iným programom. Pre tradičné športy sú k dispozícii sú
+                            dve
+                            ihriská
+                            (futbalové a volejbalové). Pre tých, ktorí majú radi adrenalínové zážitky je
+                            pripravená
+                            lezecká
+                            stena, lanovka, „tobogán,“ nízko-lanové dráhy. </h4>
+                            </div>
+
+                            <div class="col-md-4 ml-auto mr-auto text-center">
+                                <img src="assets/img/taborisko/taborisko1.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                <div class="col-md-4 ml-auto mr-auto text-center">
+                                    <img src="assets/img/taborisko/taborisko2.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                    <div class="col-md-4 ml-auto mr-auto text-center">
+                                        <img src="assets/img/taborisko/taborisko3.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+
+
+                                        <div class="col-md-12 ml-auto mr-auto text-center">
+                                            <h3 class="info-title">Ubytovanie</h3>
+                                            <h4>Ubytovanie je zabezpečené v drevených chatkách, ktoré sú postavené na drevenej
+                            podsade a
+                            tak
+                            izolované od vlhkosti. V chatke sú štyri poschodové postele a priestor na uloženie
+                            batožiny.
+                            V
+                            každej chatke je ubytovaný vedúci, ktorý zodpovedá za danú chatku. Účastníci tábora
+                            sa
+                            rozdeľujú
+                            do chatiek podľa pohlavia a veku.</h4>
+                                        </div>
+
+                                        <div class="col-md-4 ml-auto mr-auto text-center">
+                                            <img src="assets/img/taborisko/ubyt1.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                            <div class="col-md-4 ml-auto mr-auto text-center">
+                                                <img src="assets/img/taborisko/ubyt2.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                                <div class="col-md-4 ml-auto mr-auto text-center">
+                                                    <img src="assets/img/taborisko/ubyt3.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+
+
+                                                    <div class="col-md-12 ml-auto mr-auto text-center">
+                                                        <h3 class="info-title">Strava</h3>
+                                                        <h4>Táborisko nemá osobitnú kuchyňu, hlavné jedlo je zabezpečené cez stravovacie služby
+                            z
+                            obce
+                            Bystré. Malá kuchynka slúži na prípravu jednoduchých pokrmov a nápojov. Do aktivít
+                            spojených
+                            so
+                            stravovaním sa účastníci tábora zapájajú v rámci denných služieb pod dohľadom
+                            vedúceho.
+                            Ako
+                            jedáleň nám slúži veľký altánok.</h4>
+                                                    </div>
+
+                                                    <div class="col-md-4 ml-auto mr-auto text-center">
+                                                        <img src="assets/img/taborisko/strava1.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                                        <div class="col-md-4 ml-auto mr-auto text-center">
+                                                            <img src="assets/img/taborisko/strava2.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                                            <div class="col-md-4 ml-auto mr-auto text-center">
+                                                                <img src="assets/img/taborisko/strava3.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+
+
+                                                                <div class="col-md-12 ml-auto mr-auto text-center">
+                                                                    <h3 class="info-title">Hygienické zariadenia</h3>
+                                                                    <h4> Opál Camp je zameraný na pobyt v prírode a preto je táborisko zariadené jednoducho,
+                            ale
+                            premyslene. Na umývanie, sprchovanie a malú, či veľkú potrebu je k dispozícii
+                            hygienické
+                            centrum, ktoré je rozdelené na dámsku a pánsku časť.</h4>
+                                                                </div>
+
+                                                                <div class="col-md-4 ml-auto mr-auto text-center">
+                                                                    <img src="assets/img/taborisko/hyg1.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                                                    <div class="col-md-4 ml-auto mr-auto text-center">
+                                                                        <img src="assets/img/taborisko/hyg2.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+                                                                        <div class="col-md-4 ml-auto mr-auto text-center">
+                                                                            <img src="assets/img/taborisko/hyg3.jpg" alt="2017_extrem" class=" img-fluid">
+                    </div>
+
+                                                                            <div class="col-md-12 ml-auto mr-auto text-center">
+                                                                                <h3 class="info-title">Možnosť prenájmu</h3>
+                                                                                <h4> Okrem termínov Opál Campov je táborisko ale aj ubytovňa v modlitebni Cirkvi
+                            bratskej k
+                            dispozícii na prenajatie. Viac informácií na: <a
+                                href="http://www.cbhermanovce.sk/ubytovna/">http://www.cbhermanovce.sk/ubytovna/</a>
+                        </h4>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+
+
+
+                                                                <!--Kontakt-->
+                                                                <div id="contact" class="section text-end text-white" style="background-color: #4C4C4D;">
+                                                                    <div class="container">
+                                                                        <div class="row ">
+
+                                                                            <div class="col-md-12 ml-auto mr-auto text-center">
+                                                                                <h1 class="title text-white">Kontakt</h1>
+                                                                            </div>
+
+                                                                            <div class="col-md-12 ml-auto mr-auto text-center">
+                                                                                <iframe style="margin-top: 30px;" width="100%" height="450" frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDfCay9izbzvmnEQqB8eBURQndbU6QhsD0
+                                    &maptype=satellite&q=48.974417,+21.507972" allowfullscreen>
+                        </iframe>
+                                                                            </div>
+
+                                                                            <div class="col-md-4 ml-auto mr-auto text-center">
+                                                                                <br>
+                                                                                <h4 class="title text-white">Zbor Cirkvi bratskej v Hermanovciach nad Topľou</h4>
+                                                                                <h5 class=" text-white">Kazateľ Zboru CB <br> Marek Jurčo</h5>
+                                                                                <h5 class=" text-white">+421 915 510 807</h5>
+                                                                            </div>
+
+                                                                            <div class="col-md-4 ml-auto mr-auto text-center">
+                                                                                <br>
+                                                                                <h4 class="title text-white">Občianske združenie TriP</h4>
+                                                                                <h5 class=" text-white">Predseda združenia:<br> Slavomír Krupa</h5>
+                                                                                <h5 class=" text-white">+421 904 663 611</h5s>
+                    </div>
+
+                    <div class="col-md-4 ml-auto mr-auto text-center">
+                        <br>
+                        <h4 class="title text-white">Hermanovce nad Topľou 213<br> 09434 Bystré</h4>
+                        <h5 class=" text-white">info@opalcamp.sk</h5>
+                                                                                <h5 class="text-white">IBAN<br> SK2283300000002001318247</h5>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <footer class="footer footer-default">
+                                                                <div class="container">
+                                                                    <nav class="float-left">
+                                                                        <ul>
+                                                                            <li>
+                                                                                <a href="https://www.cbhermanovce.sk">
+                            CB Hermanovce
+                        </a>
+                                                                            </li>
+
+                                                                        </ul>
+                                                                    </nav>
+                                                                    <div class="copyright float-right">
+                                                                        &copy;2018 , made with <i class="material-icons">favorite</i> by
+                                                                        <a href="https://github.com/kubekbreha" target="_blank">Kubo</a>.
+                                                                    </div>
+                                                                </div>
+                                                            </footer>
+
+
+                                                            <!-- Firebase  -->
+                                                            <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+                                                            <script>
+                                                                // Initialize Firebase
+                                                                var config = {
+                                                                    apiKey: "AIzaSyCLG0Uqpl79OD1NkP8txdA_fFR2QHscK4w",
+                                                                    authDomain: "opal-1526306570324.firebaseapp.com",
+                                                                    databaseURL: "https://opal-1526306570324.firebaseio.com",
+                                                                    projectId: "opal-1526306570324",
+                                                                    storageBucket: "opal-1526306570324.appspot.com",
+                                                                    messagingSenderId: "809694766352"
+                                                                };
+                                                                firebase.initializeApp(config);
+                                                            </script>
+
+
+                                                            <script src="https://smtpjs.com/v3/smtp.js"></script>
+                                                            <!--   Core JS Files   -->
+                                                            <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
+                                                            <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+                                                            <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+                                                            <script src="assets/js/plugins/moment.min.js"></script>
+                                                            <!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+                                                            <script src="assets/js/plugins/bootstrap-datetimepicker.js" type="text/javascript"></script>
+                                                            <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+                                                            <script src="assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+                                                            <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+                                                            <script src="assets/js/material-kit.js?v=2.0.3" type="text/javascript"></script>
+                                                            <script src="assets/js/index.js" type="text/javascript"></script>
+
+
+                                                            <script>
+                                                                $(document).ready(function() {
+                                                                    $.getJSON("https://jsonip.com/?callback=?", function(data) {
+                                                                        firebase.database().ref().child('visitors').push(
+                                                                            JSON.stringify(data, null, 2)
+                                                                        );
+                                                                    });
+                                                                });
+                                                            </script>
+
+</body>
+
+</html>

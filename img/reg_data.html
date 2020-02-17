@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Provizorny zoznam</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="profile-page sidebar-collapse">
+    <div class="container">
+        <h2>OC Pro 2019</h2>
+        <h4 id="trickaPro"></h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Meno</th>
+                    <th scope="col">Dat.Narodenia</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Mesto</th>
+                    <th scope="col">Tel. Rodic</th>
+                    <th scope="col">Tricko</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>OC Start 2019</h2>
+        <h4 id="trickaStart"></h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Meno</th>
+                    <th scope="col">Dat.Narodenia</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Mesto</th>
+                    <th scope="col">Tel. Rodic</th>
+                    <th scope="col">Tricko</th>
+                </tr>
+            </thead>
+            <tbody id="table2">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>OC Extrem 2019</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Meno</th>
+                    <th scope="col">Dat.Narodenia</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Tel</th>
+                    <th scope="col">Auto</th>
+                </tr>
+            </thead>
+            <tbody id="table3">
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>OC Family 2019</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Meno 1</th>
+                    <th scope="col">Meno 2</th>
+                    <th scope="col">Deti do 6</th>
+                    <th scope="col">Deti nad 6</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Ubytko</th>
+                    <th scope="col">Poznamka</th>
+                </tr>
+            </thead>
+            <tbody id="table4">
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Firebase  -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCLG0Uqpl79OD1NkP8txdA_fFR2QHscK4w",
+            authDomain: "opal-1526306570324.firebaseapp.com",
+            databaseURL: "https://opal-1526306570324.firebaseio.com",
+            projectId: "opal-1526306570324",
+            storageBucket: "opal-1526306570324.appspot.com",
+            messagingSenderId: "809694766352"
+        };
+
+        firebase.initializeApp(config);
+        var database = firebase.database();
+
+        var d1 = document.getElementById('table');
+        var trickaPro = document.getElementById('trickaPro');
+
+        var leadsRef = database.ref('registration/pro2019');
+        leadsRef.on('value', function (snapshot) {
+            var count = 0;
+
+            var s = 0;
+            var m = 0;
+            var l = 0;
+            var xl = 0;
+
+            snapshot.forEach(function (childSnapshot) {
+                count++;
+                var childData = childSnapshot.val();
+                console.log(childData);
+                d1.insertAdjacentHTML('beforeend',
+                    '<tr>' +
+                    '<th scope="row">' + count + '</th>' +
+                    '<td>' + JSON.stringify(childData.kidName.kidName).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidBorn.kidBorn).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidMail.kidMail).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidPhone.kidPhone).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidCity.kidCity).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.parentPhone.parentPhone).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.tShirt.tShirtSize).replace("\"", "").replace("\"", "") + '</td>' +
+                    '</tr>');
+
+                if (childData.tShirt.tShirtSize == 'M') {
+                    m++;
+                } else if (childData.tShirt.tShirtSize == 'L') {
+                    l++;
+                } else if (childData.tShirt.tShirtSize == 'S') {
+                    s++;
+                } else if (childData.tShirt.tShirtSize == 'XL') {
+                    xl++;
+                }
+            });
+
+            trickaPro.insertAdjacentHTML('beforeend', "Pocty triciek ..... S=" + s + "         M=" + m + "         L=" + l + "         XL=" + xl);
+
+        });
+
+
+
+
+        var d2 = document.getElementById('table2');
+        var trickaStart = document.getElementById('trickaStart');
+
+        var leadsRef2 = database.ref('registration/start2019');
+        leadsRef2.on('value', function (snapshot) {
+            var count = 0;
+
+            var s = 0;
+            var m = 0;
+            var l = 0;
+            var xl = 0;
+
+            snapshot.forEach(function (childSnapshot) {
+                count++;
+                var childData = childSnapshot.val();
+                console.log(childData);
+                d2.insertAdjacentHTML('beforeend',
+                    '<tr>' +
+                    '<th scope="row">' + count + '</th>' +
+                    '<td>' + JSON.stringify(childData.kidName.kidName).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidBorn.kidBorn).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidMail.kidMail).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidPhone.kidPhone).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidCity.kidCity).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.parentPhone.parentPhone).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.tShirt.tShirtSize).replace("\"", "").replace("\"", "") + '</td>' +
+                    '</tr>');
+              
+                if (childData.tShirt.tShirtSize == 'M') {
+                    m++;
+                } else if (childData.tShirt.tShirtSize == 'L') {
+                    l++;
+                } else if (childData.tShirt.tShirtSize == 'S') {
+                    s++;
+                } else if (childData.tShirt.tShirtSize == 'XL') {
+                    xl++;
+                }
+
+            });
+
+            trickaStart.insertAdjacentHTML('beforeend', "Pocty triciek ..... S=" + s + "         M=" + m + "         L=" + l + "         XL=" + xl);
+
+        });
+
+        var d3 = document.getElementById('table3');
+        var leadsRef3 = database.ref('registration/extrem2019');
+        leadsRef3.on('value', function (snapshot) {
+            var count = 0;
+            snapshot.forEach(function (childSnapshot) {
+                count++;
+                var childData = childSnapshot.val();
+                console.log(childData);
+                d3.insertAdjacentHTML('beforeend',
+                    '<tr>' +
+                    '<th scope="row">' + count + '</th>' +
+                    '<td>' + JSON.stringify(childData.kidName.kidName).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidBorn.kidBorn).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidMail.kidMail).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidPhone.kidPhone).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.canCar.car).replace("\"", "").replace("\"", "") + '</td>' +
+                    '</tr>');
+            });
+        });
+
+        var d4 = document.getElementById('table4');
+        var leadsRef4 = database.ref('registration/rodina2019');
+        leadsRef4.on('value', function (snapshot) {
+            var count = 0;
+            snapshot.forEach(function (childSnapshot) {
+                count++;
+                var childData = childSnapshot.val();
+                console.log(childData);
+                d4.insertAdjacentHTML('beforeend',
+                    '<tr>' +
+                    '<th scope="row">' + count + '</th>' +
+                    '<td>' + JSON.stringify(childData.manName.manName).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.womanName.womanName).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidCountUntil.kidCountUntil).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.kidCountOver.kidCountOver).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.email.mail).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.whereUbyt.ubyt).replace("\"", "").replace("\"", "") + '</td>' +
+                    '<td>' + JSON.stringify(childData.noteToOrg.note).replace("\"", "").replace("\"", "") + '</td>' +
+                    '</tr>');
+            });
+        });
+
+
+
+    </script>
+</body>
+
+</html>
